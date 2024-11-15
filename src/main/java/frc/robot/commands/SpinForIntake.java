@@ -4,7 +4,6 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Intake;
 
@@ -12,7 +11,7 @@ public class SpinForIntake extends Command {
   private double speed = 0; //set speed later
   private Intake m_intakeMotor;
   /** Creates a new SpinForIntake. */
-  public SpinForIntake(Joystick joystick, Intake intake) {
+  public SpinForIntake(Intake intake) {
     m_intakeMotor = intake;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_intakeMotor);
