@@ -5,8 +5,13 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.SpinForIntake;
+import frc.robot.commands.SpinForOuttake;
+import frc.robot.subsystems.Intake;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -17,6 +22,12 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private Intake m_intakeMotor = new Intake();
+  private SpinForIntake m_intakeSpin = new SpinForIntake(m_intakeMotor);
+  private SpinForOuttake m_outtakeSpin = new SpinForOuttake(m_intakeMotor);
+  private Joystick m_joystick = new Joystick(0);
+  private JoystickButton m_intakeButton = new JoystickButton(m_joystick, 1);
+  private JoystickButton m_outtakeButton = new JoystickButton(m_joystick, 4);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
@@ -37,7 +48,8 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-
+    m_intakeButton.whileTrue(m_intakeSpin); //while the "x" button is pressed, do this
+    m_outtakeButton.whileTrue(m_outtakeSpin); //while the "y" button is pressed, do this
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
   }
