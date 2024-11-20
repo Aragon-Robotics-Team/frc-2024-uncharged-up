@@ -4,9 +4,10 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.SpinForIntake;
 import frc.robot.commands.SpinForOuttake;
+import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,6 +30,9 @@ public class RobotContainer {
   private JoystickButton m_intakeButton = new JoystickButton(m_joystick, 1);
   private JoystickButton m_outtakeButton = new JoystickButton(m_joystick, 4);
 
+  private Drivetrain m_drivetrain = new Drivetrain();
+  private ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_joystick, m_drivetrain);
+
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -47,11 +51,8 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     m_intakeButton.whileTrue(m_intakeSpin); //while the "x" button is pressed, do this
     m_outtakeButton.whileTrue(m_outtakeSpin); //while the "y" button is pressed, do this
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
   }
 
   /**
@@ -59,6 +60,12 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
+
+  public Command getTeleopCommand() {
+    m_drivetrain.setDefaultCommand(m_arcadeDrive);
+    return null;
+  }
+   
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     return null;
