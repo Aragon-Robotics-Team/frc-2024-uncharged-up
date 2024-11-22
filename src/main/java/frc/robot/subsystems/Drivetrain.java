@@ -10,10 +10,10 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
-  private VictorSPX m_rightPrimary = new VictorSPX(0); //ask for port later
-  private VictorSPX m_rightSecondary = new VictorSPX(0);
-  private VictorSPX m_leftPrimary = new VictorSPX(0);
-  private VictorSPX m_leftSecondary = new VictorSPX(0);
+  private VictorSPX m_rightPrimary = new VictorSPX(5);
+  private VictorSPX m_rightSecondary = new VictorSPX(7);
+  private VictorSPX m_leftPrimary = new VictorSPX(8);
+  private VictorSPX m_leftSecondary = new VictorSPX(6);
   /** Creates a new Drivetrain. */
   public Drivetrain() {}
 

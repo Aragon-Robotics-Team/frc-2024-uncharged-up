@@ -20,19 +20,19 @@ public class SpinForOuttake extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_intakeMotor.setOuttakeSpeed(0);
+    m_intakeMotor.setIntakeSpeed(0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_intakeMotor.setOuttakeSpeed(speed);
+    m_intakeMotor.setIntakeSpeed(speed);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_intakeMotor.setOuttakeSpeed(0);
+    m_intakeMotor.setIntakeSpeed(0);
   }
 
   // Returns true when the command should end.
