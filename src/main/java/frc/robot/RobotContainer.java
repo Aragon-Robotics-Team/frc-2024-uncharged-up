@@ -27,8 +27,8 @@ public class RobotContainer {
   private SpinForIntake m_intakeSpin = new SpinForIntake(m_intakeMotor);
   private SpinForOuttake m_outtakeSpin = new SpinForOuttake(m_intakeMotor);
   private Joystick m_joystick = new Joystick(0);
-  private JoystickButton m_intakeButton = new JoystickButton(m_joystick, 1);
-  private JoystickButton m_outtakeButton = new JoystickButton(m_joystick, 4);
+  private JoystickButton m_intakeButton = new JoystickButton(m_joystick, 8);
+  private JoystickButton m_outtakeButton = new JoystickButton(m_joystick, 7);
 
   private Drivetrain m_drivetrain = new Drivetrain();
   private ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_joystick, m_drivetrain);
