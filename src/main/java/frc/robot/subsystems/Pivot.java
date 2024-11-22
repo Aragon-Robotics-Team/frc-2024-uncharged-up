@@ -4,12 +4,18 @@
 
 package frc.robot.subsystems;
 
+import javax.swing.text.Position;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.SparkAbsoluteEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
+
+import edu.wpi.first.units.Distance;
+import edu.wpi.first.wpilibj.DutyCycle;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Pivot extends SubsystemBase {
@@ -20,7 +26,10 @@ public class Pivot extends SubsystemBase {
 
   /** Creates a new Pivot. */
   public Pivot() {}
-
+  
+  public double getPivotPosition() {
+    return m_encoder.getDistance();
+  }
 
   public void setPivotSpeed(double speed) {
     m_pivotMotorLeft.set(speed);
