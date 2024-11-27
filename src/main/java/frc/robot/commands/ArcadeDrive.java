@@ -29,13 +29,13 @@ public class ArcadeDrive extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double turn = m_joystick.getRawAxis(1)*0.7;//axis 1 is vertical axis of left stick
-    double speed = m_joystick.getRawAxis(4)*0.7;//axis 4 is vertical axis of right stick
+    double turn = m_joystick.getRawAxis(1)*0.25;//axis 1 is vertical axis of left stick
+    double speed = m_joystick.getRawAxis(4)*0.25;//axis 4 is vertical axis of right stick
     
     double left = speed + turn;
     double right = speed - turn;
 
-    //set left and right
+    //setnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn left and rightn
     m_drivetrain.setRightSpeed(right);
     m_drivetrain.setLeftSpeed(left);
   }
