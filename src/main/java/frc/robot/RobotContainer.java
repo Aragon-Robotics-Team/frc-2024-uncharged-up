@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.commands.ArcadeDrive;
+import frc.robot.commands.PivotToPosition;
 import frc.robot.commands.SpinForIntake;
 import frc.robot.commands.SpinForOuttake;
 import frc.robot.subsystems.Drivetrain;
@@ -34,9 +35,15 @@ public class RobotContainer {
   private Drivetrain m_drivetrain = new Drivetrain();
   private ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_joystick, m_drivetrain);
 
-  //private Pivot m_pivot = new Pivot();
-  //private PivotToPosition m
+  private Pivot m_pivot = new Pivot();
+  private PivotToPosition m_pivotToA = new PivotToPosition(m_pivot, 0);
+  private PivotToPosition m_pivotToB = new PivotToPosition(m_pivot, 0);
+  private PivotToPosition m_pivotToY = new PivotToPosition(m_pivot, 0);
+  private JoystickButton m_pivotToAButton = new JoystickButton(m_joystick, 2);
+  private JoystickButton m_pivotToBButton = new JoystickButton(m_joystick, 3);
+  private JoystickButton m_pivotToYButton = new JoystickButton(m_joystick, 4);
 
+  //a = low, b = mid, y = high, (x is unused for now)
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -57,6 +64,9 @@ public class RobotContainer {
   private void configureBindings() {
     m_intakeButton.whileTrue(m_intakeSpin); //while the "x" button is pressed, do this
     m_outtakeButton.whileTrue(m_outtakeSpin); //while the "y" button is pressed, do this
+    m_pivotToAButton.onTrue(m_pivotToA);
+    m_pivotToBButton.onTrue(m_pivotToB);
+    m_pivotToYButton.onTrue(m_pivotToY);
   }
 
   /**
