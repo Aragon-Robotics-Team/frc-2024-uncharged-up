@@ -5,15 +5,16 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
-  private VictorSPX m_rightPrimary = new VictorSPX(0); //ask for port later
-  private VictorSPX m_rightSecondary = new VictorSPX(0);
-  private VictorSPX m_leftPrimary = new VictorSPX(0);
-  private VictorSPX m_leftSecondary = new VictorSPX(0);
+  private TalonSRX m_rightPrimary = new TalonSRX(3);
+  private VictorSPX m_rightSecondary = new VictorSPX(7);
+  private VictorSPX m_leftPrimary = new VictorSPX(8);
+  private TalonSRX m_leftSecondary = new TalonSRX(6);
   /** Creates a new Drivetrain. */
   public Drivetrain() {}
 

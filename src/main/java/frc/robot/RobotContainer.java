@@ -9,6 +9,7 @@ import frc.robot.commands.SpinForIntake;
 import frc.robot.commands.SpinForOuttake;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Pivot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -32,6 +33,9 @@ public class RobotContainer {
 
   private Drivetrain m_drivetrain = new Drivetrain();
   private ArcadeDrive m_arcadeDrive = new ArcadeDrive(m_joystick, m_drivetrain);
+
+  //private Pivot m_pivot = new Pivot();
+  //private PivotToPosition m
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
 

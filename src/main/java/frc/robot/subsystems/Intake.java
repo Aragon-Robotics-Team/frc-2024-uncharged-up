@@ -16,10 +16,6 @@ public class Intake extends SubsystemBase {
     m_intakeMotor.set(intakeSpeed);
   }
 
-  public void setOuttakeSpeed(double outtakeSpeed) {
-    m_intakeMotor.set(outtakeSpeed);
-  }
-
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
