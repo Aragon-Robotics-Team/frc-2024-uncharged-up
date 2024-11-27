@@ -47,6 +47,7 @@ public class PivotToPosition extends Command {
   @Override
   public boolean isFinished() {
     if(m_error < 0.1 && m_error > -0.1) {
+      m_pivot.setPivotSpeed(0);
       return true;
     }
     return false;
